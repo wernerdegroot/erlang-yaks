@@ -42,6 +42,8 @@ typeOfYak(Age) ->
     _ -> young_yak
   end.
 
+milk(Yak = {yak, {dead_yak, _, _, _, _, _}}) ->
+  {stock:empty(), Yak};
 milk(Yak) ->
   Age = age(Yak),
   ProducedMilk = 50 - time:inDays(Age) * 0.03,
